@@ -1,0 +1,60 @@
+body{
+	background: #000;
+	font-family: Muli,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+#temp-card{
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+.h3WRrw, .PFnzkD{
+	display: flex;
+    align-items: center;
+    align-content: center;
+}
+.h3WRrw {
+    width: 100%;
+    z-index: 1;
+}
+.yzfhhP {
+    width: 26px;
+    min-width: 26px;
+    height: 40px;
+    z-index: 1;
+}
+.yzfhhP {
+    margin-left: 8px;
+}
+.PFnzkD {
+    margin-left: 20px;
+
+}
+.PFnzkD {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    color: #FFF;
+}
+.DsY3vz {
+    font-size: 64px;
+    margin: 0 10px;
+}
+._9oCDP5 {
+    font-size: 64px;
+    color: #FFF;
+    align-items: center;
+}
+#card_center{
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+
+}
+#djJklm{
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+
+}

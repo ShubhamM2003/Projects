@@ -1,0 +1,233 @@
+{% include 'base.html' %}
+{% block content %}
+{% load static %}
+
+	<!-- Todays Weather -->
+<section class =  "p-lg-0 pt-lg-5 mb-5 py-3">
+	<div class = "container">
+		<div class="row row-cols-1 row-cols-md-2 g-4">
+			<div class = "col">	
+				<div id="temp-card" class="card text-white text-center bg-dark text-lg-start">
+					<div class="card-header">
+						<div class="h3WRrw">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49.285 61.61" class="yzfhhP"><path d="M32.013 22.589c10.19 0 17.272 4.343 17.272 10.487 0 5.91-8.689 11.561-15.28 16.069a46.925 46.925 0 00-11.4 11.422 2.308 2.308 0 01-2.066 1.039q-1.914 0-1.906-3.047c.055-25.292 5.788-35.97 13.38-35.97z" fill-rule="evenodd" opacity="0.15"></path><path d="M20.535 59.553a2.054 2.054 0 01-2.019-1.674c-.834-4.427-4.436-9.609-8.247-15.094C5.22 35.526 0 28.012 0 20.535a20.536 20.536 0 1141.071 0c0 7.477-5.22 14.991-10.268 22.25-3.811 5.485-7.413 10.666-8.247 15.094a2.054 2.054 0 01-2.021 1.674z" fill="#fff" fill-rule="evenodd"></path><path d="M20.536 2.054A18.482 18.482 0 002.054 20.536c0 12.318 16.428 26.055 18.482 36.964 2.053-10.909 18.482-24.646 18.482-36.964A18.482 18.482 0 0020.536 2.054z" fill="#0072f5" fill-rule="evenodd"></path><circle data-name="Ellipse 8" cx="6.565" cy="6.565" r="6.565" fill="#fff" transform="translate(13.394 13.928)"></circle></svg>
+							<h1 class="PFnzkD">Weather in {{city}}, {{coun}}</h1>
+						</div>
+					</div>
+					<div class="card-body">
+						<div class = "row g-0">
+							<div class = "col-md-4">
+								<img src={{imag}} class="img-fluid rounded-start" style="width: 170px;">
+							</div>
+							<div class = "col-md-8 pb-5">
+								<h3 style="font-size: 50px; font-weight:500; padding-top: 20px;margin: 0 30px;">{{temp}}<span>&#176</span></h3>
+								<h3 style="margin: 0 30px">{{cond}}</h3>
+							</div>
+						</div>
+					</div>
+					<div class="card-footer text-center">
+						<h4 style="font-size: 20px">Time in {{city}} {{time}} {{days}}, {{mont}} {{date}}</h4>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card text-white bg-dark mb-3">
+					<div class = "card-header">
+						<h1 class = "PFnzkD" style = "margin-left: 0">Hourly weather in {{city}}, {{coun}}</h1>
+						<div class = "row bg-dark">
+							<div class = "owl-carousel owl-theme text-light">
+								<div class="item bg-dark">
+									<div class = "card text-light bg-dark">
+										<div class = "card-header">
+											<h7>Now</h7>
+										</div>
+										<div class = "card-body">
+											<img src={{imag}} class = "card-img-top">
+										</div>
+										<div class = "card-footer">
+											<h6 id = "daily-temp">{{temp}}<span>&#176</span></h6>
+										</div>
+									</div>
+								</div>
+
+								{% for it in hello_list %}
+								<div class="item mb-4">
+									<div class = "card bg-dark text-light">
+										<div class = "card-header">
+											<h7 class = "daily-time">{{it.0}}</h7>
+										</div>
+										<div class = "card-body">
+											<img src={{it.1}} class = "card-img-top">
+										</div>
+										<div class = "card-footer">
+											<h6 id = "daily-temp">{{it.2}}<span>&#176</span></h6>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class = "text-center">
+	<div class="container">
+		<div class = "text-secondary text-start">
+			<h1>Todays Highlights</h1>
+		</div>
+			<div class="row row-cols-1 row-cols-md-3 g-4">
+
+				<div class="col">
+			    	<div class="card bg-dark text-light shadow-lg">
+			    		<div class = "h1 mt-3">
+				      		<i class="bi bi-thermometer-half"></i>
+				      	</div>
+				      	<div class="card-body">
+				        	<h5 class="card-title">Real Feel</h5>
+				        	<h2 id = "real-feel">{{real_feel}}<span>&#176</span></h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+				      	<div class = "h1 mt-3">
+				      		<i class="bi bi-moisture"></i>
+				      	</div>
+				      	<div class="card-body text">
+				        	<h5 class="card-title">Humidity</h5>
+				        	<h2 id="humidity">{{humidity}}<span>%</span></h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+				      	<div class = "h1 mt-3">
+				      		<i class="bi bi-cloud-rain"></i>
+				      	</div>				      	
+				      	<div class="card-body text">
+				        	<h5 class="card-title">Chance of Rain</h5>
+				        	<h2 id="chance-of-rain">{{rain}}<span>%</span></h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+			    		<div class = "h1 mt-3">
+				      		<i class="bi bi-sunrise"></i>
+				      	</div>
+				      	<div class="card-body">
+				        	<h5 class="card-title">Sunrise</h5>
+				        	<h2 id="sunrise">{{sunrise}}</h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+			    		<div class = "h1 mt-3">
+				      		<i class="bi bi-sunset"></i>
+				      	</div>
+				      	<div class="card-body">
+				        	<h5 class="card-title">Sunset</h5>
+				        	<h2 id="sunset">{{sunset}}</h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+						<div class = "h1 mt-3">
+							<i class = "bi bi-speedometer"></i>
+						</div>
+				      	<div class="card-body text">
+				        	<h5 class="card-title">Pressure</h5>
+				        	<h2 id="pressure">{{pressure}}<span>mbar</span></h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+				      	<div class = "h1 mt-3">
+				      		<i class="bi bi-wind"></i>
+				      	</div>
+				      	<div class="card-body text">
+				        	<h5 class="card-title">wind Speed</h5>
+				        	<h2 id="wind-speed">{{wind}}<span>km/h</span></h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+				      	<div class = "h1 mt-3" >
+				      		<i class="bi bi-thermometer-sun"></i>
+				      	</div>
+				      	<div class="card-body text">
+				        	<h5 class="card-title">UV Index</h5>
+				        	<h2 id="uv-index">{{uv}}</h2>
+				      	</div>
+				    </div>
+				</div>
+				<div class="col">
+			    	<div class="card bg-dark text-light">
+				      	<div class = "h1 mt-3" >
+				      		<i class="bi bi-wind"></i>
+				      	</div>
+				      	<div class="card-body text">
+				        	<h5 class="card-title">Wind Direction</h5>
+				        	<h2 id="wind-direction">{{wind_dir}}</h2>
+				      	</div>
+				    </div>
+				</div>
+			</div>
+		</div>
+		  	</div>
+		</div>
+</section>
+<section>
+	<div class = "container">
+		<div class = "text-center pt-5 pb-5">
+			<h2> Designed & Developed By Kartik Abuj</h2>
+		</div>
+	</div>
+<section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script>
+		var owl = $('.owl-carousel');
+		owl.owlCarousel({
+		    loop:false,
+		    nav:true,
+		    margin:10,
+		    responsive:{
+		        0:{
+		            items:1
+		        },
+		        100:{
+		            items:3
+		        },            
+		        960:{
+		            items:5
+		        },
+		        1200:{
+		            items:6
+		        }
+		    }
+		});
+		owl.on('mousewheel', '.owl-stage', function (e) {
+		    if (e.deltaY>0) {
+		        owl.trigger('next.owl');
+		    } else {
+		        owl.trigger('prev.owl');
+		    }
+		    e.preventDefault();
+		});
+			</script>
+
+	
+
+{% endblock %}
